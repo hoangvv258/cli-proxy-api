@@ -1,0 +1,5 @@
+# Vì trong docker-compose bạn đã mount vào /root/.cli-proxy-api
+auth-dir: "/root/.cli-proxy-api"
+port: 8317
+client-id: "YOUR_CLIENT_ID"
+client-secret: "YOUR_CLIENT_SECRET"

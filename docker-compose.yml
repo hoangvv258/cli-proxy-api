@@ -1,0 +1,16 @@
+services:
+  cli-proxy-api:
+    image: eceasy/cli-proxy-api:latest
+    container_name: cli-proxy-api
+    pull_policy: always
+    restart: unless-stopped
+    ports:
+      - "8317:8317" # Cổng API chính
+      - "54545:54545" # Cổng xác thực
+      - "8085:8085" # Cổng OAuth callback
+    volumes:
+      - ./config.yaml:/CLIProxyAPI/config.yaml
+      - ./auths:/root/.cli-proxy-api # Lưu token đăng nhập
+      - ./logs:/CLIProxyAPI/logs
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
